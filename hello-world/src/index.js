@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Product from './components/product';
 
-
-const element=<h1>hello world!</h1>
-ReactDOM.render(element,document.getElementById("root"));
+ReactDOM.render(<Product/>,document.getElementById("root"));

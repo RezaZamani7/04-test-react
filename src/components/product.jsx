@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 
 class Product extends Component {
-    count = 0;
+    state={count:0};
   render() {
-    // const count = 5;
     const list = ["item one", "item two", "item three"];
     return (
       <>
-        <span className="m-2 text-info">product name</span>
+        <span className="m-2 text-info">LAPTOP</span>
         <span className="m-2 badge bg-primary">
-          {
-            // this.format(count)
-             this.count === 0 ? "zero!" : this.count 
-          }
+          {this.state.count}
         </span>
-        <button className="m-2 btn btn-sm btn-success">+</button>
-        <button className="m-2 btn btn-sm btn-warning">-</button>
-        <button className="m-2 btn btn-sm btn-danger">delete</button>
+        <button onClick={this.addFunc} className="m-2 btn btn-sm btn-success">
+          +
+        </button>
+        <button
+          onClick={this.removeFunc.bind(this)}
+          className="m-2 btn btn-sm btn-warning"
+        >
+          -
+        </button>
+        <button onClick={this.delFunc} className="m-2 btn btn-sm btn-danger">delete</button>
         <ul>
           {list.map((item, index) => (
             <li key={index}>{item}</li>
@@ -25,14 +28,15 @@ class Product extends Component {
       </>
     );
   }
-//   format(x) {
-//     if (x === 0) {
-//       return "zero!";
-//     } else {
-//       return x;
-//     }
-//     // x === 0 ? "zero!" : x;
-//   }
+  addFunc = () => {
+    this.setState({count: this.state.count+1});
+  };
+  removeFunc() {
+    this.setState({count: this.state.count-1})
+  }
+  delFunc=()=>{
+    this.setState({count:0})
+  }
 }
 
 export default Product;

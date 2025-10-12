@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const Product = () => {
+const Product = (props) => {
     const [count, setCount] = useState(0);
 
   return (
-    <>
-      <span className="m-2 text-info">LAPTOP</span>
+    <div>
+      <span className="m-2 text-info">{props.productName}</span>
       <span className="m-2 badge bg-primary">{count}</span>
       <button onClick={addFunc} className="m-2 btn btn-sm btn-success">
         +
@@ -16,7 +16,7 @@ const Product = () => {
       <button onClick={delFunc} className="m-2 btn btn-sm btn-danger">
         delete
       </button>
-    </>
+    </div>
   );
 
 function addFunc() {

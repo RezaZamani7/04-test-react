@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 
 class Product extends Component {
-    state={
-      count:this.props.count
-    };
+    
   render() {
 const {productName}=this.props;
     return (
       <div>
         <span className="m-2 text-info">{productName}</span>
         <span className="m-2 badge bg-primary">
-          {this.state.count}
+          {this.props.count}
         </span>
         <button onClick={this.addFunc} className="m-2 btn btn-sm btn-success">
           +
@@ -25,12 +23,16 @@ const {productName}=this.props;
       </div>
     );
   }
+
+  // methods
   addFunc = () => {
-    this.setState({count: this.state.count+1});
+    this.props.onAdd(this.props.id)
   };
+
   removeFunc() {
-    this.setState({count: this.state.count-1})
+    this.props.onRemove(this.props.id)
   }
+  
   delFunc=()=>{
     this.props.onDelete(this.props.id)
   }

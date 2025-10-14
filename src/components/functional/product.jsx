@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-const Product = ({productName, count:propCount, id, onDelete}) => {
-    const [count, setCount] = useState(propCount);
+const Product = ({productName, count:propCount, id, onDelete, onAdd, onRemove}) => {
 
   return (
     <div>
       <span className="m-2 text-info">{productName}</span>
-      <span className="m-2 badge bg-primary">{count}</span>
+      <span className="m-2 badge bg-primary">{propCount}</span>
       <button onClick={addFunc} className="m-2 btn btn-sm btn-success">
         +
       </button>
@@ -20,10 +19,10 @@ const Product = ({productName, count:propCount, id, onDelete}) => {
   );
 
 function addFunc() {
-  setCount(count + 1);
+  onAdd(id);
 }
 function removeFunc() {
-  setCount(count - 1);
+  onRemove(id);
 }
 function delFunc() {
   onDelete(id);

@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const Product = ({productName, count:propCount, id, onDelete, onAdd, onRemove}) => {
+const Product = ({productName, count, id, onDelete, onAdd, onRemove}) => {
 
   return (
     <div>
       <span className="m-2 text-info">{productName}</span>
-      <span className="m-2 badge bg-primary">{propCount}</span>
+      <span className="m-2 badge bg-primary">{count}</span>
       <button onClick={addFunc} className="m-2 btn btn-sm btn-success">
         +
       </button>

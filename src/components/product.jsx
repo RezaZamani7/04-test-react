@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
 class Product extends Component {
-    state={count:0};
+    state={
+      count:this.props.count
+    };
   render() {
-    const list = ["item one", "item two", "item three"];
+const {productName}=this.props;
     return (
-      <>
-        <span className="m-2 text-info">LAPTOP</span>
+      <div>
+        <span className="m-2 text-info">{productName}</span>
         <span className="m-2 badge bg-primary">
           {this.state.count}
         </span>
@@ -20,12 +22,7 @@ class Product extends Component {
           -
         </button>
         <button onClick={this.delFunc} className="m-2 btn btn-sm btn-danger">delete</button>
-        <ul>
-          {list.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </>
+      </div>
     );
   }
   addFunc = () => {
@@ -35,7 +32,7 @@ class Product extends Component {
     this.setState({count: this.state.count-1})
   }
   delFunc=()=>{
-    this.setState({count:0})
+    this.props.onDelete(this.props.id)
   }
 }
 
